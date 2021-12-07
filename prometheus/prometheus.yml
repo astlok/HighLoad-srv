@@ -13,11 +13,11 @@ scrape_configs:
 
   - job_name: 'server3'
     static_configs:
-      - targets: ['10.129.0.21:8080']
+      - targets: ['51.250.27.26:8080']
 
   - job_name: 'system3'
     static_configs:
-      - targets: ['10.129.0.21:9100']
+      - targets: ['51.250.27.26:9100']
 
   - job_name: 'server4'
     static_configs:
