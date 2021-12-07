@@ -42,7 +42,7 @@ func apiHandler(w http.ResponseWriter, r *http.Request) {
 	num := uint64(1)
 
 	for i := uint64(1); i < 10000; i++ {
-		for j := 1; j < 10000; j++ {
+		for j := 1; j < 1000; j++ {
 			num += i
 		}
 	}
