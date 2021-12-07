@@ -8,12 +8,11 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"os"
 	"time"
 )
 
 func main() {
-	port := os.Getenv("port")
+	port := ":8080"
 
 	router := mux.NewRouter()
 
