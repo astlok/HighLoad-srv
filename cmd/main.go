@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"highload-srv/httputils"
@@ -8,7 +9,6 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"time"
 )
 
 func main() {
@@ -37,9 +37,17 @@ func main() {
 
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	reqID := rand.Uint64()
-	time.Sleep(time.Millisecond * time.Duration(rand.Int31n(100)))
 
-	answer := "get api handler"
+	//time.Sleep(time.Millisecond * time.Duration(rand.Int31n(100)))
+	num := uint64(1)
+
+	for i := uint64(1); i < 40000; i++ {
+		for j := 1; j < 100000; j++ {
+			num += i
+		}
+	}
+
+	answer := fmt.Sprintf("get api handler %d", num)
 
 	httputils.Respond(w, r, reqID, http.StatusOK, answer)
 }
