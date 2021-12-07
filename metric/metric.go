@@ -71,16 +71,18 @@ func New() {
 	prometheus.MustRegister(hits, cpu, errors, Timings)
 
 	go func() {
-		idle0, total0 := getCPUSample()
-		time.Sleep(3 * time.Second)
-		idle1, total1 := getCPUSample()
+		for {
+			idle0, total0 := getCPUSample()
+			time.Sleep(3 * time.Second)
+			idle1, total1 := getCPUSample()
 
-		idleTicks := float64(idle1 - idle0)
-		totalTicks := float64(total1 - total0)
-		cpuUsage := 100 * (totalTicks - idleTicks) / totalTicks
+			idleTicks := float64(idle1 - idle0)
+			totalTicks := float64(total1 - total0)
+			cpuUsage := 100 * (totalTicks - idleTicks) / totalTicks
 
-		cpu.WithLabelValues(fmt.Sprintf("%f", cpuUsage)).Inc()
-		time.Sleep(time.Second * 1)
+			cpu.WithLabelValues(fmt.Sprintf("%f", cpuUsage)).Inc()
+			time.Sleep(time.Second * 1)
+		}
 	}()
 }
 
