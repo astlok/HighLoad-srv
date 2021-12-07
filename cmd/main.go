@@ -37,7 +37,7 @@ func main() {
 
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	reqID := rand.Uint64()
-	time.Sleep(time.Millisecond * time.Duration(rand.Int31n(1000)))
+	time.Sleep(time.Millisecond * time.Duration(rand.Int31n(100)))
 
 	answer := "get api handler"
 
