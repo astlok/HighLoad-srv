@@ -41,8 +41,8 @@ func apiHandler(w http.ResponseWriter, r *http.Request) {
 	//time.Sleep(time.Millisecond * time.Duration(rand.Int31n(100)))
 	num := uint64(1)
 
-	for i := uint64(1); i < 40000; i++ {
-		for j := 1; j < 100000; j++ {
+	for i := uint64(1); i < 10000; i++ {
+		for j := 1; j < 10000; j++ {
 			num += i
 		}
 	}
