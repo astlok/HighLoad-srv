@@ -38,7 +38,6 @@ func main() {
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	reqID := rand.Uint64()
 
-	//time.Sleep(time.Millisecond * time.Duration(rand.Int31n(100)))
 	num := uint64(1)
 
 	for i := uint64(1); i < 10000; i++ {
